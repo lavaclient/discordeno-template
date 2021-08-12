@@ -1,0 +1,9 @@
+# Editor Settings
+.vscode/
+
+# Configuration
+.env
+config.ts
+
+# Stuff
+file_loader.ts
