@@ -1,5 +1,4 @@
-import { DiscordVoiceServer, DiscordVoiceState } from "https://deno.land/x/lavadeno@3.1.1/mod.ts";
-import { DiscordGatewayOpcodes, GatewayPayload, ws } from "../../deps.ts";
+import { DiscordVoiceServer, DiscordVoiceState, DiscordGatewayOpcodes, GatewayPayload, ws } from "../../deps.ts";
 import { bot } from "../bot.ts";
 
 bot.eventHandlers.raw = (payload: GatewayPayload) => {

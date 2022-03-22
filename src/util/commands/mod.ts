@@ -10,6 +10,9 @@ export * from "./creation.ts";
 
 const logger = getLogger("commands");
 const baseCommandContext: Partial<CommandContext> = {
+    get bot() {
+        return bot;
+    },
     get message() {
         return this.interaction?.message;
     },

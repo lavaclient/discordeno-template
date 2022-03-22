@@ -3,11 +3,13 @@ import { bot } from "../../bot.ts";
 import { createCommand } from "../../util/commands/mod.ts";
 import { getMemberVoiceState } from "../../util/helpers.ts";
 import { getQueue } from "../../music/songQueue.ts";
+import config from "../../../config.ts";
 
 createCommand({
     name: "play",
     description: "Plays a track.",
-    defaultVisibility: "ephemeral",
+    guildId: config.guild,
+    defaultResponseVisibility: "ephemeral",
     options: [
         {
             name: "query",
@@ -45,7 +47,7 @@ createCommand({
             ? query
             : `${platform}${query}`);
 
-        let tracks: Track[] = [], msg: string = "";
+        let tracks: Track[] = [], msg = "";
         switch (results.loadType) {
             case "LOAD_FAILED":
             case "NO_MATCHES":

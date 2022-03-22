@@ -1,3 +1,4 @@
+import config from "../../../config.ts";
 import { bot } from "../../bot.ts";
 import { createCommand } from "../../util/commands/mod.ts";
 import constants from "../../util/constants.ts";
@@ -6,6 +7,7 @@ import { getMemberVoiceState } from "../../util/helpers.ts";
 createCommand({
     name: "join",
     description: "Joins your voice channel.",
+    guildId: config.guild,
     execute: ctx => {
         if (!ctx.guildId) {
             return

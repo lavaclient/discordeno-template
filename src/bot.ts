@@ -1,8 +1,6 @@
-import { sendShardMessage } from "https://deno.land/x/discordeno@12.0.1/src/ws/send_shard_message.ts";
-import { Cluster } from "https://deno.land/x/lavadeno@3.1.1/mod.ts";
 import config from "../config.ts";
 import { getLogger } from "./util/logger.ts";
-import { cache, Collection, EventHandlers, ws } from "../deps.ts";
+import { cache, Collection, EventHandlers, Cluster, ws, sendShardMessage } from "../deps.ts";
 
 import type { Command } from "./util/commands/mod.ts";
 import type { Queue } from "./music/songQueue.ts";
@@ -25,3 +23,5 @@ export const bot = {
             .reduce((sum, ping) => sum + ping, 0) / ws.shards.size;
     }
 }
+
+export type Bot = typeof bot;

@@ -69,7 +69,6 @@ export function getQueueMessenger(channelId: bigint): QueueMessenger {
         },
         async postTrackUpdate(...embeds) {
             try {
-                console.log(this.channel.lastMessageId, lastTrackUpdate)
                 switch (lastTrackUpdate) {
                     case null:
                         await newTrackUpdate(embeds);

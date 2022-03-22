@@ -1,4 +1,5 @@
 import { ApplicationCommandOption, ApplicationCommandOptionChoice, ApplicationCommandOptionTypes, ApplicationCommandPermissionTypes, DiscordenoChannel, DiscordenoRole, Embed as IEmbed, InteractionApplicationCommandCallbackData, InteractionGuildMember, InteractionResponseTypes, Message, SlashCommandInteraction, User } from "../../../deps.ts";
+import { Bot } from "../../bot.ts";
 
 type CommandOptionTypes = {
     "String": string,
@@ -28,7 +29,7 @@ interface Base {
 interface BaseCommand extends Base {
     options?: CommandOption[];
     execute: CommandExecutor;
-    defaultVisibility?: ResponseVisibility;
+    defaultResponseVisibility?: ResponseVisibility;
     defaultResponseType?: InteractionResponseTypes;
 }
 
@@ -67,6 +68,7 @@ export interface CommandContext {
     interaction: SlashCommandInteraction;
 
     /* getters */
+    bot: Bot;
     message?: Message;
     member?: InteractionGuildMember;
     user: User;
@@ -90,7 +92,7 @@ export interface CommandRef {
     applicationId: bigint;
     guildId?: string;
     name: string;
-    description: string;
+    description?: string;
     options?: ApplicationCommandOption[];
     defaultPermission?: boolean;
 }

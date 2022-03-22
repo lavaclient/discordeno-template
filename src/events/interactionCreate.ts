@@ -54,6 +54,6 @@ bot.eventHandlers.interactionCreate = (_interaction) => {
             optionsDict[option.name] = value ?? defaultValue;
         }
 
-        command.execute?.(getCommandContext(interaction, command.defaultVisibility, command.defaultResponseType), optionsDict);
+        command.execute?.(getCommandContext(interaction, command.defaultResponseVisibility, command.defaultResponseType), optionsDict);
     }
 }

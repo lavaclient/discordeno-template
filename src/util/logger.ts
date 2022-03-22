@@ -32,7 +32,7 @@ export interface Logger {
     warn: (...msg: any[]) => void;
 }
 
-export function getLogger(name: string, level: LogLevel = LogLevel.Info): Logger {
+export function getLogger(name: string, level: LogLevel = LogLevel.Fatal): Logger {
     function write(logLevel: LogLevel, str: string) {
         /* check if `logLevel` is alllowed. */
         if (level < logLevel) {

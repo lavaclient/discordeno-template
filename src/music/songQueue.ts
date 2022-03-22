@@ -1,12 +1,10 @@
 import { mayStartNext, Track } from "https://deno.land/x/lavalink_types@2.0.6/mod.ts";
-import { createNewProp } from "../../deps.ts";
+import { createNewProp, Player } from "../../deps.ts";
 import { bot } from "../bot.ts";
 import constants from "../util/constants.ts";
 import { sendEmbeds } from "../util/helpers.ts";
 import { clearQueueTimeout, finishQueue, QueueTimeout, startQueueTimeout } from "./timeouts.ts";
 import { getQueueMessenger, QueueMessenger } from "./messenger.ts";
-
-import type { Player } from "https://deno.land/x/lavadeno@3.1.1/mod.ts";
 
 export enum LoopType {
     Track,

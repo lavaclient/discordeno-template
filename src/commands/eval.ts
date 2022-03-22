@@ -1,11 +1,12 @@
 import constants from "../util/constants.ts";
 import { hide } from "../util/commands/helpers.ts";
 import { createCommand } from "../util/commands/mod.ts";
+import config from "../../config.ts";
 
 createCommand({
     name: "eval",
     description: "Evaluates code.",
-    guildId: 830616783199010857n,
+    guildId: config.guild,
     ownerOnly: true,
     options: [
         {

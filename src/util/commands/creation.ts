@@ -2,11 +2,12 @@ import { ApplicationCommandOption, ApplicationCommandOptionChoice, ApplicationCo
 import { Command, CommandOptionChoices, CommandPermission, SubCommand, SubCommandGroup } from "./base.ts";
 
 /* root commands */
-export function toDiscordCommand(command: Command): CreateGlobalApplicationCommand | CreateGuildApplicationCommand {
+export function toDiscordCommand(command: Command): CreateGlobalApplicationCommand & CreateGuildApplicationCommand {
     return {
         name: command.name,
         description: command.description,
         options: command.subCommands?.length ? toDiscordSubCommands(command) : toDiscordCommandOptions(command),
+        // type: ApplicationCommandTypes.ChatInput
     }
 }
 
@@ -69,3 +70,4 @@ export function toDiscordCommandOptionChoices(choices: CommandOptionChoices): Ap
         ? choices
         : Object.entries(choices).map(([name, value]) => ({ name, value }));
 }
+ 
